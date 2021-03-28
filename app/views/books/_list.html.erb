@@ -1,0 +1,45 @@
+
+<div class="col-md-3">
+  <h2>User info</h2>
+
+  <table>
+    <thaed>
+      <tr>
+        <th>Name</th>
+        <th><%= user.name %></th>
+      </tr>
+    </thaed>
+    <tbody>
+      <tr>
+        <tb>introduction</tb>
+        <tb><%= user.introduction %></tb>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<h2>New Book</h2>
+<font>
+<% if book.errors.any? %>
+  <%= book.errors.count %>件のerrorエラーが発生しました
+  <% book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+<%= form_with model: book,url:"/books", local:true do |f| %>
+<div class="field">
+<label class="new_title">Title</label>
+<%= f.text_field :title %>
+</div>
+<div class="field">
+<label class ="new_body">Opinion</label>
+<%= f.text_area :body%>
+</div>
+<div class="action">
+<br><%= f.submit "Create Book"%><br>
+<% end %>
+</div>
+</div>
+</font>
+</div>
